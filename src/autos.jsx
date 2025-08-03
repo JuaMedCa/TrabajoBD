@@ -41,16 +41,20 @@ export default function AutosForm() {
     const method = editingId ? 'PUT' : 'POST';
 
     try {
-      await fetch(url, {
+      const res = await fetch(url, {
         method,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
+        body: JSON.stringify({ ...form, año: Number(form.año) }) // ✅ Convertir año a número
       });
+
+      if (!res.ok) throw new Error('Error en la petición');
+
       setForm({ marca: '', modelo: '', año: '', placas: '', disponible: true });
       setEditingId(null);
       fetchAutos();
       alert(editingId ? 'Auto actualizado' : 'Auto registrado');
     } catch (err) {
+      console.error(err);
       alert('Error al guardar auto');
     }
   };

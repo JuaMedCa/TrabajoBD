@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Auto = require('../models/Auto');
 
+// Obtener todos los autos
 router.get('/', async (req, res) => {
   try {
     const autos = await Auto.find();
@@ -11,6 +12,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Obtener autos disponibles
 router.get('/disponibles', async (req, res) => {
   try {
     const autosDisponibles = await Auto.find({ disponible: true });
@@ -20,20 +22,19 @@ router.get('/disponibles', async (req, res) => {
   }
 });
 
+// Registrar nuevo auto
 router.post('/', async (req, res) => {
   try {
-    console.log('Datos recibidos en POST /autos:', req.body); // 👈 agrega esto
-
     const nuevoAuto = new Auto(req.body);
     const resultado = await nuevoAuto.save();
     res.json(resultado);
   } catch (error) {
-    console.error('Error al registrar auto:', error); // 👈 y esto
+    console.error(error);
     res.status(500).json({ error: 'Error al registrar auto' });
   }
 });
 
-
+// Actualizar auto
 router.put('/:id', async (req, res) => {
   try {
     const autoActualizado = await Auto.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -44,6 +45,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+// Eliminar auto
 router.delete('/:id', async (req, res) => {
   try {
     await Auto.findByIdAndDelete(req.params.id);
