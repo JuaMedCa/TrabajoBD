@@ -31,9 +31,19 @@ export default function ReparacionesForm() {
   };
 
   return (
+<<<<<<< Updated upstream
     <form onSubmit={handleSubmit}>
       <h2>Registrar Reparación</h2>
       <Link to="/" style={linkStyle}>🏠 Regresar al Home</Link>
+=======
+    <div className="container mt-4">
+      <div className="d-flex justify-content-between align-items-center mb-4">
+        <h2 className="fw-bold" style={{ color: '#f1f1f1' }}>Gestión de Reparaciones</h2>
+        <Link to="/" className="btn btn-outline-light">
+          🏠 Regresar al Home
+        </Link>
+      </div>
+>>>>>>> Stashed changes
 
       <input
         name="auto_id"

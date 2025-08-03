@@ -31,9 +31,15 @@ export default function DevolucionesForm() {
   };
 
   return (
+<<<<<<< Updated upstream
     <form onSubmit={handleSubmit}>
       <h2>Registrar Devolución</h2>
       <Link to="/" style={linkStyle}>🏠 Regresar al Home</Link>
+=======
+    <div className="container mt-4">
+      <h2 className="fw-bold" style={{ color: '#f1f1f1' }}>Registrar Devolución</h2>
+      <Link to="/" className="btn btn-outline-primary mb-3">🏠 Regresar al Home</Link>
+>>>>>>> Stashed changes
 
       <input
         name="renta_id"

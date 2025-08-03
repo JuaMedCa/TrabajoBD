@@ -1,36 +1,60 @@
-// Home.jsx - Menú principal
+// src/Home.jsx
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Carousel from 'react-bootstrap/Carousel';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './style.css';
 
 export default function Home() {
   return (
-    <div>
-      <h1>Renta de Autos - Menú Principal</h1>
-      <nav>
-        <ul>
-          <li><Link to="/autos">Registrar Autos</Link></li>
-          <li><Link to="/clientes">Registrar Clientes</Link></li>
-          <li><Link to="/rentas">Registrar Renta</Link></li>
-          <li><Link to="/reparaciones">Registrar Reparaciones</Link></li>
-          <li><Link to="/devoluciones">Registrar Devolución</Link></li>
-          <li><Link to="/autos-disponibles">Ver Autos Disponibles</Link></li>
-        </ul>
-      </nav>
+    <div className="container opciones animate__animated animate__fadeInUp">
+      <h2 className="text-center mb-4">Bienvenido al sistema de renta de autos</h2>
+      <div className="d-flex flex-wrap justify-content-center gap-3">
+        <a href="/autos" className="btn btn-primary">Registrar Auto</a>
+        <a href="/clientes" className="btn btn-primary">Registrar Cliente</a>
+        <a href="/rentas" className="btn btn-primary">Registrar Renta</a>
+        <a href="/devoluciones" className="btn btn-primary">Registrar Devolución</a>
+        <a href="/reparaciones" className="btn btn-primary">Registrar Reparación</a>
+        <a href="/autos-disponibles" className="btn btn-success">Autos Disponibles</a>
+      </div>
+
+      <div className="custom-carousel animate__animated animate__zoomIn mt-4">
+        <Carousel>
+          <Carousel.Item>
+            <img
+              className="d-block w-100 carousel-img"
+              src="https://cdn.pixabay.com/photo/2015/01/19/13/51/car-604019_960_720.jpg"
+              alt="Auto 1"
+            />
+            <Carousel.Caption className="custom-caption">
+              <h3>Renta tu auto ideal</h3>
+              <p>Con los mejores precios del mercado</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img
+              className="d-block w-100 carousel-img"
+              src="https://cdn.pixabay.com/photo/2015/01/19/13/51/car-604019_960_720.jpg"
+              alt="Auto 1"
+            />
+            <Carousel.Caption className="custom-caption">
+              <h3>Renta tu auto ideal</h3>
+              <p>Con los mejores precios del mercado</p>
+            </Carousel.Caption>
+          </Carousel.Item><Carousel.Item>
+            <img
+              className="d-block w-100 carousel-img"
+              src="https://cdn.pixabay.com/photo/2015/01/19/13/51/car-604019_960_720.jpg"
+              alt="Auto 1"
+            />
+            <Carousel.Caption className="custom-caption">
+              <h3>Renta tu auto ideal</h3>
+              <p>Con los mejores precios del mercado</p>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+      </div>
     </div>
   );
 }
 
-// Estilo para los botones de regreso
-export const linkStyle = {
-  display: 'inline-block',
-  marginBottom: '20px',
-  color: '#007bff',
-  textDecoration: 'none',
-  fontWeight: 'bold'
-};
-
-// Agregar en cada componente:
-// import { Link } from 'react-router-dom';
-// import { linkStyle } from './Home';
-// ...
-// <Link to="/" style={linkStyle}>🏠 Regresar al Home</Link>
+export default Home;

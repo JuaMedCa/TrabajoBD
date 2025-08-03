@@ -32,9 +32,17 @@ export default function RentasForm() {
   };
 
   return (
+<<<<<<< Updated upstream
     <form onSubmit={handleSubmit}>
       <h2>Registrar Renta</h2>
       <Link to="/" style={linkStyle}>🏠 Regresar al Home</Link>
+=======
+    <div className="container mt-4">
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <h2 className="fw-bold" style={{ color: '#f1f1f1' }}>Registro de Rentas</h2>
+        <Link to="/" className="btn btn-outline-primary">🏠 Regresar al Home</Link>
+      </div>
+>>>>>>> Stashed changes
 
       <input
         name="cliente_id"
