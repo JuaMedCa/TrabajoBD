@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { linkStyle } from './Home';
+
+const linkStyle = {
+  display: 'inline-block',
+  marginBottom: '10px',
+  color: '#007bff',
+  textDecoration: 'none',
+  fontWeight: 'bold'
+};
 
 export default function RentasForm() {
   const [form, setForm] = useState({
@@ -8,7 +15,7 @@ export default function RentasForm() {
     auto_id: '',
     fecha_inicio: '',
     fecha_fin: '',
-    costo_total: ''
+    costo: ''
   });
 
   const handleChange = (e) => {
@@ -36,39 +43,13 @@ export default function RentasForm() {
       <h2>Registrar Renta</h2>
       <Link to="/" style={linkStyle}>🏠 Regresar al Home</Link>
 
-      <input
-        name="cliente_id"
-        placeholder="ID del Cliente"
-        onChange={handleChange}
-        required
-      />
-      <input
-        name="auto_id"
-        placeholder="ID del Auto"
-        onChange={handleChange}
-        required
-      />
-      <label>Fecha Inicio:</label>
-      <input
-        name="fecha_inicio"
-        type="date"
-        onChange={handleChange}
-        required
-      />
-      <label>Fecha Fin:</label>
-      <input
-        name="fecha_fin"
-        type="date"
-        onChange={handleChange}
-        required
-      />
-      <input
-        name="costo_total"
-        type="number"
-        placeholder="Costo Total"
-        onChange={handleChange}
-        required
-      />
+      <input name="cliente_id" placeholder="ID del Cliente" onChange={handleChange} required />
+      <input name="auto_id" placeholder="ID del Auto" onChange={handleChange} required />
+      <label>Fecha de Inicio:</label>
+      <input name="fecha_inicio" type="date" onChange={handleChange} required />
+      <label>Fecha de Fin:</label>
+      <input name="fecha_fin" type="date" onChange={handleChange} required />
+      <input name="costo" placeholder="Costo" type="number" onChange={handleChange} required />
       <button type="submit">Guardar</button>
     </form>
   );

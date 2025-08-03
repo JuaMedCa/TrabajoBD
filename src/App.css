@@ -89,3 +89,19 @@ nav a:hover {
   background-color: #0056b3;
   color: #fff;
 }
+
+.carousel-img {
+  height: 400px;
+  object-fit: cover;
+}
+
+.carousel-container {
+  margin-top: 56px; /* altura de la navbar */
+}
+
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}

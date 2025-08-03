@@ -5,7 +5,7 @@ const AutoSchema = new mongoose.Schema({
   modelo: String,
   año: Number,
   placas: String,
-  disponible: { type: Boolean, default: true }
+  disponible: Boolean
 });
 
 module.exports = mongoose.model('Auto', AutoSchema);

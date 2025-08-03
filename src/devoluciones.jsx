@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { linkStyle } from './Home';
+
+// ✅ Estilo local para el botón de regresar al Home
+const linkStyle = {
+  display: 'inline-block',
+  marginBottom: '10px',
+  color: '#007bff',
+  textDecoration: 'none',
+  fontWeight: 'bold'
+};
 
 export default function DevolucionesForm() {
   const [form, setForm] = useState({
