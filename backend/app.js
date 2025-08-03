@@ -20,6 +20,8 @@ app.use('/clientes', clientesRoutes);
 app.use('/rentas', rentasRoutes);
 app.use('/reparaciones', reparacionesRoutes);
 app.use('/devoluciones', devolucionesRoutes);
+app.use('/rentas', rentasRoutes);
+
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {

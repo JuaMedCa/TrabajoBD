@@ -1,4 +1,3 @@
-// src/Layout.jsx
 import React from 'react';
 import { Outlet, Link } from 'react-router-dom';
 
@@ -23,8 +22,7 @@ export default function Layout() {
               <li className="nav-item"><Link className="nav-link" to="/reparaciones">Reparaciones</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/devoluciones">Devoluciones</Link></li>
               <li className="nav-item"><Link className="nav-link" to="/autos-disponibles">Autos Disponibles</Link></li>
-
-
+              <li className="nav-item"><Link className="nav-link" to="/mas-rentados">Autos Más Rentados</Link></li> {/* ✅ NUEVO */}
             </ul>
           </div>
         </div>

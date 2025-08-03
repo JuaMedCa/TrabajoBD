@@ -1,3 +1,4 @@
+// ✅ AutosForm.jsx
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -44,7 +45,7 @@ export default function AutosForm() {
       const res = await fetch(url, {
         method,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, año: Number(form.año) }) // ✅ Convertir año a número
+        body: JSON.stringify(form)
       });
 
       if (!res.ok) throw new Error('Error en la petición');

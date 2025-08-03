@@ -1,3 +1,4 @@
+// ✅ routes/autos.js
 const express = require('express');
 const router = express.Router();
 const Auto = require('../models/Auto');
