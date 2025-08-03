@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.table-success {
+  background-color: #28a745 !important; /* verde fuerte */
+  color: #fff !important;
+}
+.table-warning {
+  background-color: #ffc107 !important; /* amarillo fuerte */
+  color: #212529 !important;
+}
+.table-danger {
+  background-color: #dc3545 !important; /* rojo fuerte */
+  color: #fff !important;
+}
+.table-orange {
+  background-color: #ff8800 !important;
+  color: #fff !important;
+}

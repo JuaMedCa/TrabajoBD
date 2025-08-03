@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+
 export default function DevolucionesForm() {
   const [form, setForm] = useState({
     renta_id: '',
@@ -52,6 +53,20 @@ export default function DevolucionesForm() {
     }
   };
 
+  const handleDelete = async (id) => {
+    if (window.confirm("¿Seguro que deseas eliminar esta devolución?")) {
+      try {
+        const res = await fetch(`http://localhost:4000/devoluciones/${id}`, {
+          method: 'DELETE'
+        });
+        if (!res.ok) throw new Error();
+        fetchDevoluciones();
+      } catch {
+        alert('Error al eliminar devolución');
+      }
+    }
+  };
+
   // Filtro aplicado
   const devolucionesFiltradas = devoluciones.filter(dev => {
     const coincideCliente = filtroCliente === '' || dev.renta?.cliente_id?.nombre?.toLowerCase().includes(filtroCliente.toLowerCase());
@@ -84,7 +99,22 @@ export default function DevolucionesForm() {
 
         <div className="mb-3">
           <label className="form-label">Estado del Auto</label>
-          <input type="text" name="estado_auto" className="form-control" value={form.estado_auto} onChange={handleChange} required />
+          <select
+            name="estado_auto"
+            className="form-control"
+            value={form.estado_auto}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Seleccione el estado</option>
+             <option value="Excelente">Excelente</option>
+            <option value="Bueno">Bueno</option>
+            <option value="Regular">Regular</option>
+            <option value="Malo">Malo</option>
+            <option value="Dañado">Dañado</option>
+            <option value="No funcional">No funcional</option>
+            <option value="En revision">En revision</option>
+          </select>
         </div>
 
         <div className="mb-3">
@@ -95,29 +125,6 @@ export default function DevolucionesForm() {
         <button type="submit" className="btn btn-success">Guardar Devolución</button>
       </form>
 
-      {/* Filtros */}
-      <div className="mb-4">
-        <h4>🔍 Filtros del Historial</h4>
-        <div className="row g-2">
-          <div className="col-md-6">
-            <input
-              type="text"
-              placeholder="Buscar por cliente"
-              className="form-control"
-              value={filtroCliente}
-              onChange={(e) => setFiltroCliente(e.target.value)}
-            />
-          </div>
-          <div className="col-md-6">
-            <input
-              type="date"
-              className="form-control"
-              value={filtroFecha}
-              onChange={(e) => setFiltroFecha(e.target.value)}
-            />
-          </div>
-        </div>
-      </div>
 
       {/* Tabla de historial */}
       <div className="card">
@@ -133,21 +140,49 @@ export default function DevolucionesForm() {
                 <th>Fecha</th>
                 <th>Estado</th>
                 <th>Comentarios</th>
+                <th>Acciones</th> {/* Nueva columna */}
               </tr>
             </thead>
             <tbody>
-              {devolucionesFiltradas.map((dev) => (
-                <tr key={dev._id}>
-                  <td>{dev.renta?.cliente_id?.nombre}</td>
-                  <td>{dev.renta?.auto_id?.marca} {dev.renta?.auto_id?.modelo}</td>
-                  <td>{new Date(dev.fecha).toLocaleDateString()}</td>
-                  <td>{dev.estado_auto}</td>
-                  <td>{dev.comentarios}</td>
-                </tr>
-              ))}
+              {devolucionesFiltradas.map((dev) => {
+                let rowClass = "";
+                if (dev.estado_auto === "Excelente" || dev.estado_auto === "Bueno") {
+                  rowClass = "table-success";
+                } else if (dev.estado_auto === "Regular" || dev.estado_auto === "En revision") {
+                  rowClass = "table-warning";
+                } else if (
+                  dev.estado_auto === "Malo" ||
+                  dev.estado_auto === "Dañado" ||
+                  dev.estado_auto === "No funcional"
+                ) {
+                  rowClass = "table-danger";
+                }
+
+                return (
+                  <tr key={dev._id} className={rowClass}>
+                    <td>{dev.renta_id?.cliente_id?.nombre}</td>
+                    <td>
+                      {dev.renta_id?.auto_id?.marca} {dev.renta_id?.auto_id?.modelo}
+                    </td>
+                    <td>{new Date(dev.fecha).toLocaleDateString()}</td>
+                    <td>{dev.estado_auto}</td>
+                    <td>{dev.comentarios}</td>
+                    <td>
+                      <button
+                        className="btn btn-danger btn-sm p-1"
+                        style={{ fontSize: "0.85rem", width: "2em", height: "1.8em", display: "flex", alignItems: "center", justifyContent: "center" }}
+                        onClick={() => handleDelete(dev._id)}
+                        title="Eliminar"
+                      >
+                        X
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
               {devolucionesFiltradas.length === 0 && (
                 <tr>
-                  <td colSpan="5" className="text-center">No hay devoluciones encontradas</td>
+                  <td colSpan="6" className="text-center">No hay devoluciones encontradas</td>
                 </tr>
               )}
             </tbody>

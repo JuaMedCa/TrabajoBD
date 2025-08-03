@@ -45,4 +45,13 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.delete('/:id', async (req, res) => {
+  try {
+    await Devolucion.findByIdAndDelete(req.params.id);
+    res.json({ success: true });
+  } catch {
+    res.status(500).json({ error: 'Error al eliminar devolución' });
+  }
+});
+
 module.exports = router;
