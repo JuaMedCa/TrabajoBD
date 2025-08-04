@@ -13,8 +13,8 @@ export default function DevolucionesForm() {
   const [devoluciones, setDevoluciones] = useState([]);
 
   // Filtros
-  const [filtroCliente, setFiltroCliente] = useState('');
-  const [filtroFecha, setFiltroFecha] = useState('');
+const [filtroCliente] = useState('');
+const [filtroFecha] = useState('');
 
   useEffect(() => {
     fetch('http://localhost:4000/rentas')
@@ -76,12 +76,12 @@ export default function DevolucionesForm() {
 
   return (
     <div className="container mt-4">
-      <h2 className="fw-bold">Registrar Devolución</h2>
-      <Link to="/" className="btn btn-outline-primary mb-3">🏠 Regresar al Home</Link>
+      <h2 className="fw-bold" style={{ color: 'white' }}> Registrar Devolución</h2>
+      <Link to="/" className="btn btn-outline-light">🏠 Regresar al Home</Link>
 
       <form onSubmit={handleSubmit} className="mb-4">
         <div className="mb-3">
-          <label className="form-label">Renta</label>
+          <label className="form-label" style={{ color: 'black' }}>Renta</label>
           <select name="renta_id" className="form-select" value={form.renta_id} onChange={handleChange} required>
             <option value="">Seleccione una renta</option>
             {rentas.map(renta => (
@@ -93,12 +93,12 @@ export default function DevolucionesForm() {
         </div>
 
         <div className="mb-3">
-          <label className="form-label">Fecha de Devolución</label>
+          <label className="form-label" style={{ color: 'black' }}>Fecha de Devolución</label>
           <input type="date" name="fecha" className="form-control" value={form.fecha} onChange={handleChange} required />
         </div>
 
         <div className="mb-3">
-          <label className="form-label">Estado del Auto</label>
+          <label className="form-label" style={{ color: 'black' }}>Estado del Auto</label>
           <select
             name="estado_auto"
             className="form-control"
@@ -118,7 +118,7 @@ export default function DevolucionesForm() {
         </div>
 
         <div className="mb-3">
-          <label className="form-label">Comentarios</label>
+          <label className="form-label" style={{ color: 'black' }}>Comentarios</label>
           <textarea name="comentarios" className="form-control" value={form.comentarios} onChange={handleChange} />
         </div>
 

@@ -79,19 +79,19 @@ export default function Clientes() {
   return (
     <div className="container mt-4">
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2 className="fw-bold">Gestión de Clientes</h2>
+        <h2 className="fw-bold" style={{ color: 'white' }}>Gestión de Clientes</h2>
         <Link to="/" className="btn btn-outline-light">
           🏠 Regresar al Home
         </Link>
       </div>
 
       {/* Formulario de alta/edición */}
-      <div className="card mb-5 shadow-sm">
+      <div >
         <div className="card-body">
           <form onSubmit={handleSubmit}>
             <div className="row g-3">
               <div className="col-md-6">
-                <label className="form-label">Nombre</label>
+                <label className="form-label" style={{ color: 'black' }}>Nombre</label>
                 <input
                   name="nombre"
                   value={form.nombre}
@@ -102,7 +102,7 @@ export default function Clientes() {
                 />
               </div>
               <div className="col-md-6">
-                <label className="form-label">Apellido</label>
+                <label className="form-label" style={{ color: 'black' }}>Apellido</label>
                 <input
                   name="apellido"
                   value={form.apellido}
@@ -113,7 +113,7 @@ export default function Clientes() {
                 />
               </div>
               <div className="col-md-6">
-                <label className="form-label">Correo electrónico</label>
+                <label className="form-label" style={{ color: 'black' }}>Correo electrónico</label>
                 <input
                   name="correo"
                   type="email"
@@ -125,7 +125,7 @@ export default function Clientes() {
                 />
               </div>
               <div className="col-md-6">
-                <label className="form-label">Teléfono</label>
+                <label className="form-label" style={{ color: 'black' }}>Teléfono</label>
                 <input
                   name="telefono"
                   value={form.telefono}

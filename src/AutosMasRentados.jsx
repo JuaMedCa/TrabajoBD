@@ -18,8 +18,8 @@ export default function AutosMasRentados() {
   return (
     <div className="container mt-4">
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2 className="fw-bold">Autos más Rentados (últimos 2 meses)</h2>
-        <Link to="/" className="btn btn-outline-dark">🏠 Regresar al Home</Link>
+        <h2 className="fw-bold" style={{color:"white"}}>Autos más Rentados (últimos 2 meses)</h2>
+        <Link to="/" className="btn btn-outline-light">🏠 Regresar al Home</Link>
       </div>
 
       <div className="card shadow-sm">

@@ -87,18 +87,18 @@ export default function Reparaciones() {
   return (
     <div className="container mt-4">
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2 className="fw-bold">Gestión de Reparaciones</h2>
+        <h2 className="fw-bold" style={{color:"white"}}>Gestión de Reparaciones</h2>
         <Link to="/" className="btn btn-outline-light">
           🏠 Regresar al Home
         </Link>
       </div>
 
-      <div className="card mb-5 shadow-sm">
+      <div>
         <div className="card-body">
           <form onSubmit={handleSubmit}>
             <div className="row g-3">
               <div className="col-md-6">
-                <label className="form-label">Auto</label>
+                <label className="form-label" style={{color:"black"}}>Auto</label>
                 <select
                   name="auto_id"
                   value={form.auto_id}
@@ -106,7 +106,7 @@ export default function Reparaciones() {
                   className="form-select"
                   required
                 >
-                  <option value="">-- Selecciona un auto --</option>
+                  <option value="" style={{color:"white"}}> Selecciona un auto</option>
                   {autos.map(a => (
                     <option key={a._id} value={a._id}>
                       {a.marca} {a.modelo} ({a.placas})
@@ -115,15 +115,15 @@ export default function Reparaciones() {
                 </select>
               </div>
               <div className="col-md-6">
-                <label className="form-label">Fecha</label>
+                <label className="form-label" style={{color:"black"}}>Fecha</label>
                 <input type="date" name="fecha" value={form.fecha} onChange={handleChange} className="form-control" required />
               </div>
               <div className="col-md-6">
-                <label className="form-label">Descripción</label>
+                <label className="form-label" style={{color:"black"}}>Descripción</label>
                 <textarea name="descripcion" value={form.descripcion} onChange={handleChange} className="form-control" required />
               </div>
               <div className="col-md-6">
-                <label className="form-label">Costo</label>
+                <label className="form-label" style={{color:"black"}}>Costo</label>
                 <input type="number" name="costo" value={form.costo} onChange={handleChange} className="form-control" required />
               </div>
             </div>

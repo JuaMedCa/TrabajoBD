@@ -84,34 +84,34 @@ export default function AutosForm() {
   return (
     <div className="container mt-4">
       <div className="d-flex justify-content-between align-items-center mb-4">
-        <h2 className="fw-bold">Gestión de Autos</h2>
+        <h2 className="fw-bold" style={{ color: 'white' }}>Gestión de Autos</h2>
         <Link to="/" className="btn btn-outline-light">🏠 Regresar al Home</Link>
       </div>
 
-      <div className="card mb-5 shadow-sm">
+      <div >
         <div className="card-body">
           <form onSubmit={handleSubmit}>
             <div className="row g-3">
               <div className="col-md-6">
-                <label className="form-label">Marca</label>
+                <label className="form-label" style={{ color: 'black' }}>Marca</label>
                 <input name="marca" value={form.marca} onChange={handleChange} className="form-control" required />
               </div>
               <div className="col-md-6">
-                <label className="form-label">Modelo</label>
+                <label className="form-label" style={{ color: 'black' }}>Modelo</label>
                 <input name="modelo" value={form.modelo} onChange={handleChange} className="form-control" required />
               </div>
               <div className="col-md-6">
-                <label className="form-label">Año</label>
+                <label className="form-label" style={{ color: 'black' }}>Año</label>
                 <input name="año" value={form.año} onChange={handleChange} type="number" className="form-control" required />
               </div>
               <div className="col-md-6">
-                <label className="form-label">Placas</label>
+                <label className="form-label" style={{ color: 'black' }}>Placas</label>
                 <input name="placas" value={form.placas} onChange={handleChange} className="form-control" required />
               </div>
               <div className="col-md-12">
                 <div className="form-check">
                   <input className="form-check-input" type="checkbox" name="disponible" checked={form.disponible} onChange={handleChange} />
-                  <label className="form-check-label">Disponible</label>
+                  <label className="form-check-label" style={{ color: 'black' }}>Disponible</label>
                 </div>
               </div>
             </div>

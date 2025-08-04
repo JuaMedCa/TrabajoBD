@@ -72,8 +72,8 @@ export default function RentasForm() {
   return (
     <div className="container mt-4">
       <div className="d-flex justify-content-between align-items-center mb-3">
-        <h2 className="fw-bold">Registro de Rentas</h2>
-        <Link to="/" className="btn btn-outline-primary">🏠 Regresar al Home</Link>
+        <h2 className="fw-bold" style={{ color: 'white' }}>Registro de Rentas</h2>
+        <Link to="/" className="btn btn-outline-light">🏠 Regresar al Home</Link>
       </div>
 
       <form onSubmit={handleSubmit} className="card p-4 shadow-sm mb-5">
@@ -125,7 +125,6 @@ export default function RentasForm() {
 
       <div className="card shadow-sm">
         <div className="card-body p-0">
-          <h4 className="p-3 mb-0 border-bottom bg-light">Autos en Renta</h4>
           <table className="table mb-0">
             <thead className="table-dark">
               <tr>
